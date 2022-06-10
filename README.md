@@ -32,7 +32,25 @@ Same as above, but with less wasted space.
 At the document root, there is an index file that shows previews of all of the
 banners, and provides a way to experiment with color combinations.
 
+## Dependencies
+
+```
+curl
+jq
+node.js
+npm
+```
+
 ## Credits
 
 I took some color combination ideas from
 [colorion.co](https://2colors.colorion.co/).
+
+The scripts in this repository take icons from [Google
+Fonts](https://fonts.google.com).
+
+## License
+
+This work is licensed under the GNU General Public License version 3 (GPLv3).
+
+[![GPLv3](https://s-christy.com/status-banner-service/GPLv3_Logo.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
