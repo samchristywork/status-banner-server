@@ -1,3 +1,5 @@
+![Banner](https://s-christy.com/status-banner-service/status-banner-server/banner-slim.svg)
+
 ## Overview
 
 This is a web server that serves dynamic image content for code repository
