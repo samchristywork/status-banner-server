@@ -1,0 +1,11 @@
+{
+  "default": {
+    "name": "Default Template",
+    "description1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+    "description2": "sed do eiusmod tempor incididunt ut labore et dolore",
+    "description3": "magna aliqua. Ut enim ad minim veniam, quis nostrud",
+    "symbol": "zoom_in",
+    "color-fg": "#DCE2F0",
+    "color-bg": "#50586C"
+  }
+}
