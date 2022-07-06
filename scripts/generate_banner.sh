@@ -35,7 +35,7 @@ cat templates/banner.svg | \
   sed "s/REPODESCRIPTION3/$description3/g" | \
   cat > public/$package/banner.svg
 sed 's/^.......................................//g' icons/$icon >> public/$package/banner.svg
-echo "</g></svg>" >> public/$package/banner.svg
+echo "</g></g></svg>" >> public/$package/banner.svg
 
 # Create a slim version of the "banner"
 cat templates/banner-slim.svg | \
@@ -47,4 +47,4 @@ cat templates/banner-slim.svg | \
   sed "s/REPODESCRIPTION3/$description3/g" | \
   cat > public/$package/banner-slim.svg
 sed 's/^.......................................//g' icons/$icon >> public/$package/banner-slim.svg
-echo "</g></svg>" >> public/$package/banner-slim.svg
+echo "</g></g></svg>" >> public/$package/banner-slim.svg
