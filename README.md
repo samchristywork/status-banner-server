@@ -27,6 +27,30 @@ supporting. The actual information that the script uses is supplied by a
 Finally, there is a static index file that gives the user the ability to review
 the generated data all at once, and experiment with different colors and styles.
 
+## Manifest
+
+The `manifest.json` file is the chief way in which users add content to be
+tracked by the server. Most of the fields are self-explanatory, but the "symbol"
+field is the name of any symbol that can be found on
+[fonts.google.com/icons](https://fonts.google.com/icons), and will show up on
+the left panel of the image.
+
+Here is an example:
+
+```json
+{
+  "default": {
+    "name": "Default Template",
+    "description1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit,",
+    "description2": "sed do eiusmod tempor incididunt ut labore et dolore",
+    "description3": "magna aliqua. Ut enim ad minim veniam, quis nostrud",
+    "symbol": "zoom_in",
+    "color-fg": "#DCE2F0",
+    "color-bg": "#50586C"
+  }
+}
+```
+
 ## API
 
 "API" may be a bit of a misnomer, but there are particular routes that are
