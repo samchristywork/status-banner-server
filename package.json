@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/samchristywork/status-banner-server#readme",
   "dependencies": {
-    "express.js": "^1.0.0"
+    "express.js": "^1.0.0",
+    "node-fetch": "^2.7.0"
   }
 }

@@ -1,4 +1,5 @@
 var express = require("express");
+let fetch = require("node-fetch");
 let fs = require("fs");
 let path = require("path");
 
@@ -17,6 +18,16 @@ function getSVGFile(name) {
   name = name + "/materialicons/24px.svg";
   let filePath = path.join(__dirname, "material-design-icons/src", name);
   let content = fs.readFileSync(filePath, "utf8");
+
+  return content;
+}
+
+//https://raw.githubusercontent.com/google/material-design-icons/master/src/alert/warning/materialicons/24px.svg
+function fetchWebResource(name) {
+  name = name + "/materialicons/24px.svg";
+  let url = `https://raw.githubusercontent.com/google/material-design-icons/master/src/${name}`;
+
+  let content = fetch(url).then((res) => res.text());
 
   return content;
 }
@@ -77,11 +88,10 @@ app.get("/sbs/status-banner.svg", (req, res) => {
   );
   let filename = getQueryOrDefault(req.query.icon, "alert/warning");
 
-  let content = getSVGFile(filename);
+  let content = fetchWebResource(filename).then((content) => {
+    content = content.replace(/svg xmlns/, `svg fill="${foreground}" xmlns`);
 
-  content = content.replace(/svg xmlns/, `svg fill="${foreground}" xmlns`);
-
-  let template = `<?xml version="1.0" encoding="UTF-8"?>
+    let template = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1700" height="280">
 <g transform="">
   <rect fill="${background}" x="0" y="0" width="1700" height="500"/>
@@ -91,8 +101,9 @@ app.get("/sbs/status-banner.svg", (req, res) => {
   <g transform="translate(20 20) scale(10)">${content}</g></g></svg>
  `;
 
-  res.setHeader("Content-Type", "image/svg+xml");
-  res.send(template);
+    res.setHeader("Content-Type", "image/svg+xml");
+    res.send(template);
+  });
 });
 
 app.use("/sbs/", express.static("public"));
