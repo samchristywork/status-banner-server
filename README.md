@@ -1,4 +1,4 @@
-![Banner](https://s-christy.com/status-banner-service/status-banner-server/banner-slim.svg)
+![Banner](https://s-christy.com/sbs/status-banner.svg?icon=content/ballot&hue=200&title=Status%20Banner%20Server&description=A%20server%20that%20displays%20SVG%20banners%20and%20status%20icons%20for%20GitHub)
 
 ## Overview
 
