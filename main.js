@@ -108,5 +108,7 @@ app.get("/sbs/status-banner.svg", (req, res) => {
 
 app.use("/sbs/", express.static("public"));
 
+app.use("/status-banner-server/", express.static("static"));
+
 app.listen(8084);
 console.log("Listening on port 8084...");
