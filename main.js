@@ -24,8 +24,14 @@ function getSVGFile(name) {
 
 //https://raw.githubusercontent.com/google/material-design-icons/master/src/alert/warning/materialicons/24px.svg
 function fetchWebResource(name) {
-  name = name + "/materialicons/24px.svg";
-  let url = `https://raw.githubusercontent.com/google/material-design-icons/master/src/${name}`;
+  let url = '';
+
+  if (name.includes("/")) {
+    name = name + "/materialicons/24px.svg";
+    url = `https://raw.githubusercontent.com/google/material-design-icons/master/src/${name}`;
+  } else {
+    url = 'http://localhost:8084/status-banner-service/' + name;
+  }
 
   let content = fetch(url).then((res) => res.text());
 
