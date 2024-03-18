@@ -91,17 +91,10 @@ app.get("/sbs/status-banner.svg", (req, res) => {
   let content = fetchWebResource(filename).then((content) => {
     content = content.replace(/svg xmlns/, `svg fill="${foreground}" xmlns`);
 
-    let pattern = "";
-    for (let i = 0; i < 1700; i += 20) {
-      pattern += `<rect fill="${foreground}" fill-opacity="0.05" x="${i}" y="0" width="10" height="280"/>`;
-      pattern += `<rect fill="${foreground}" fill-opacity="0.05" x="0" y="${i}" width="1700" height="10"/>`;
-    }
-
     let template = `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="1700" height="280">
 <g transform="">
   <rect fill="${background}" x="0" y="0" width="1700" height="280"/>
-  ${pattern}
   <rect fill="${foreground}" x="300" y="30" width="30" height="220"/>
   <text fill="${foreground}" x="390" y="115" font-size="70px" font-weight="bold" font-family="sans serif">${title}</text>
   <text fill="${foreground}" x="390" y="210" font-size="35px" font-style="italic">${description}</text>
@@ -115,7 +108,7 @@ app.get("/sbs/status-banner.svg", (req, res) => {
 
 app.use("/sbs/", express.static("public"));
 
-app.use("/status-banner-server/", express.static("static"));
+app.use("/status-banner-service/", express.static("static"));
 
 app.listen(8084);
 console.log("Listening on port 8084...");
